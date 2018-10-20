@@ -1,0 +1,74 @@
+var longestIncrease = function(test){
+    var dp=[];
+    var maxlens=1;
+    for(var i =0; i<test.length; i++)
+    {
+        var maxval =0;
+        for(var j=0; j<i;j++)
+        {
+            if(test[i]> test[j])
+            {
+                maxval = Math.max(dp[j], maxval);
+            }
+            
+        }
+        dp[i]= maxval+1;
+        maxlens = Math.max(maxlens, dp[i]);
+    }
+    return maxlens;
+}
+longestIncrease([10, 22, 9, 33, 21, 50, 41, 60]);
+
+ function printSubsets(s)
+    {
+        var set = Array.from(s);
+        var  n = set.length;
+ 
+        // Run a loop for printing all 2^n
+        // subsets one by obe
+        for (var i = 0; i < (1<<n); i++)
+        {
+            var s ="{";
+ 
+            // Print current subset
+            for (var j = 0; j < n; j++)
+ 
+                // (1<<j) is a number with jth bit 1
+                // so when we 'and' them with the
+                // subset number we get which numbers
+                // are present in the subset and which
+                // are not
+                if ((i & (1 << j)) > 0)
+                    s = s+ (set[j] + " ");
+ 
+            console.log(s+"}");
+        }
+    }
+    printSubsets("qwer");
+
+    function Add(x, y)
+    {
+        console.log(x.toString(2)+ " : "+ y.toString(2)) 
+        // Iterate till there is no carry
+        while (y != 0) 
+        {
+            // carry now contains common
+            // set bits of x and y
+            var carry = x & y;
+           
+            // Sum of bits of x and 
+            // y where at least one 
+            // of the bits is not set
+            x = x ^ y;
+             
+            // Carry is shifted by 
+            // one so that adding it 
+            // to x gives the required sum
+            y = carry << 1;
+            console.log(x.toString(2)+ " : "+ y.toString(2)+ " : "+carry.toString(2)) 
+            console.log(x+ " : "+ y+ " : "+carry) 
+        }
+        return x;
+    }
+    Add(23,2);
+    
