@@ -1,5 +1,6 @@
 
 //read me angain fro stating madify from my_maser UI makde some chnage from command line
+frank chnage from UI
 var longestIncrease = function(test){
     var dp=[];
     var maxlens=1;
